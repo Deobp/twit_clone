@@ -10,8 +10,8 @@ export const connectDB = async () => {
 
     await db.exec(`
       CREATE TABLE IF NOT EXISTS users (
-        id TEXT PRIMARY KEY AUTOINCREMENT,
-        name UNIQUE TEXT NOT NULL,
+        id TEXT PRIMARY KEY, -- Use TEXT for UUID, no AUTOINCREMENT needed
+        name TEXT NOT NULL,
         email TEXT UNIQUE NOT NULL
       )
     `);
