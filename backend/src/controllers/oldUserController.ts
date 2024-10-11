@@ -1,14 +1,14 @@
-import { connectDB } from "../config/db";
+import { db } from "../config/db";
 import bcrypt from "bcrypt";
 import { UserInterface } from "../interfaces/UserInterface";
 import { v4 as uuidv4 } from 'uuid';
 
 export const createUser = async (
+  id: string,
   username: string,
   password: string
 ): Promise<UserInterface> => {
   try {
-    const db = await connectDB();
 
     const existingUser = await db.get<UserInterface>(
       "SELECT * FROM users where username = ?",
@@ -28,10 +28,10 @@ export const createUser = async (
       password: hashedPassword,
     };
 
-    const result = await db.run(
-      "INSERT INTO users (id, username, password) VALUES (?, ?, ?)",
-      [newUser.id, newUser.username, newUser.password]
-    );
+    // const result = await db.run(
+    //   "INSERT INTO users (id, username, password) VALUES (?, ?, ?)",
+    //   [newUser.id, newUser.username, newUser.password]
+    // );
 
     return newUser;
 

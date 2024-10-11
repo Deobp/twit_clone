@@ -1,21 +1,29 @@
-import express from 'express';
-import { createUser } from '../models/users';
+//JUST FOR TESTING ONLY, TEMPORARY
+// import express from 'express';
+// import { createUser } from '../models/users';
 
-const router = express.Router();
+// const app = express();
+// // const port = 3000;
 
-router.post('/signup', async (req, res) => {
-  try {
-    const {username, password} = req.body;
+// // app.use(express.json());
+// const router = express.Router();
 
-    const user = createUser(username, password)
-      if(user) {
-        res.status(201).json({message: 'user created', user});
-      } else {
-        res.status(400).json({message: 'user already exist'});
-      }
-  } catch (error) {
-    res.status(500).json({message:'Error  creating user', error});
-  }
-});
+// router.post('/signup', async (req, res) => {
+//   try {
+//     const {username, password} = req.body;
+//     return 1;
+  
 
-export default router;
+//     const user = createUser(username, password)
+//       if(user) {
+//         res.status(201).json({message: 'user created', user});
+//       } else {
+//         res.status(400).json({message: 'user already exist'});
+//       }
+//   } catch (error) {
+//     res.status(500).json({message:'Error  creating user', error});
+//   }
+// });
+
+
+// export default router;

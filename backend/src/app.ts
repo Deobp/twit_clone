@@ -1,16 +1,21 @@
 import express from 'express';
-import {connectDB} from './config/db';
-import router from './routes/auth';
-
+const db = require('./config/db');
 const app = express();
-const port = 3000;
-
+const PORT = 3000;
 app.use(express.json());
 
-connectDB();
+const userRouter = require('./routes/users')
 
-app.use('/api/signup', router);
-app.listen(port, () => {
-  console.log(`Server is running on localhost:${port}`);
-  
-})
+app.use('/users', userRouter);
+
+db
+  .authenticate()
+  .then(() => db.sync())
+  .then(() => {
+    console.log('db sync');
+    app.listen(PORT)
+  })
+  .then(() => console.log('server listening on port:', PORT))
+  .catch((error) => {
+    console.log(error);
+  });
