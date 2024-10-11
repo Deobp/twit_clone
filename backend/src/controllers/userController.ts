@@ -6,7 +6,7 @@ import { UserInterface } from '../interfaces/UserInterface';
 
 
 
-const createUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const createUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     console.log('request body from createUser:', req.body);
     const {id, username, password} = req.body;
