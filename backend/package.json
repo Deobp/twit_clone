@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "scripts": {
+    "start": "nodemon src/app.ts",
+    "build": "tsc",
+    "dev": "ts-node src/app.ts"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/sqlite3": "^3.1.11",
+    "@types/uuid": "^10.0.0"
+  }
+}

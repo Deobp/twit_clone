@@ -1,0 +1,49 @@
+# Node.js dependencies
+backend/node_modules/
+frontend/node_modules/
+
+# Logs
+backend/logs/
+frontend/logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+backend/.env
+frontend/.env
+
+# SQLite database file
+backend/*.sqlite
+
+# Compiled TypeScript
+backend/dist/
+backend/build/
+frontend/dist/
+frontend/build/
+
+# Cache files
+backend/.cache/
+frontend/.cache/
+.vscode/
+
+# Ignore frontend build outputs
+frontend/public/dist/
+frontend/public/build/
+
+# Ignore temporary files and swap files
+tmp/
+*.tmp
+*.swp
+
+# Ignore compiled assets from Vite, Webpack
+frontend/.vite/
+frontend/.parcel-cache/
+frontend/.webpack/
+
+# Ignore lock files for package managers
+backend/package-lock.json
+frontend/package-lock.json
+yarn.lock
+pnpm-lock.yaml
