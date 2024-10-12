@@ -1,10 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-// const { User } = require('./../models/UserModel');
 const {User} = require('../models/UsersModel')
-// import {User} from '../models/UsersModel'
-import { UserInterface } from '../interfaces/UserInterface';
-
-
 
 export const createUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {

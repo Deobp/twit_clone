@@ -1,16 +1,15 @@
 import express from 'express';
-const db = require('./config/db');
+import db from './config/db';
+import userRoutes from './routes/userRoutes';
+
 const app = express();
 const PORT = 3000;
+
 app.use(express.json());
 
-const userRouter = require('./routes/users')
+app.use('/api/users', userRoutes);
 
-app.use('/users', userRouter);
-
-db
-  .authenticate()
-  .then(() => db.sync())
+db.sync({ force: true })
   .then(() => {
     console.log('db sync');
     app.listen(PORT)
