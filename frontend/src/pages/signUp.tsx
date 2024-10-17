@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const SignUp = () => {
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -10,7 +10,7 @@ const SignUp = () => {
 
     try {
       const response = await axios.post("http://localhost:3000/api/users/signup/", {
-        userName,
+        username,
         password,
       });
 
@@ -28,8 +28,8 @@ const SignUp = () => {
         <input
           type="text"
           name="userName"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           required
         />
       </label>
