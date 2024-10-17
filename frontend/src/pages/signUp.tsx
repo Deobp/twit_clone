@@ -1,11 +1,27 @@
-import { useState } from "react"
+import React, { useState } from "react";
+import axios from "axios";
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:3000/api/users/signup/", {
+        userName,
+        password,
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error signing up:", error);
+    }
+  };
+
   return (
-    <form action="/api/signUp" method="POST">
+    <form onSubmit={handleSubmit}>
       <h2>Sign Up</h2>
       <label>
         Username:
@@ -20,11 +36,11 @@ const SignUp = () => {
       <label>
         Password:
         <input
-        type="password"
-        name="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
+          type="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
         />
       </label>
       <button type="submit">Sign Up</button>

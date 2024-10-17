@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { DataTypes, Optional } from 'sequelize';
 import  db  from '../config/db';
 import { UserInterface } from '../interfaces/UserInterface';
